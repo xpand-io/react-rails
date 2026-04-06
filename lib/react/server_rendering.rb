@@ -14,7 +14,7 @@ module React
     # @return [void]
     def self.reset_pool
       options = { size: pool_size, timeout: pool_timeout }
-      @@pool = ConnectionPool.new(options) { self.renderer.new(self.renderer_options) }
+      @@pool = ConnectionPool.new(**options) { self.renderer.new(self.renderer_options) }
     end
 
     # Check a renderer out of the pool and use it to render the component.
